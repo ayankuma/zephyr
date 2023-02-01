@@ -32,9 +32,9 @@
 			reg = <0x88000000 DT_SIZE_M(64)>;
 		};
 
-		dram0: memory@0 {
+		dram0: memory@100000 {
 			compatible = "mmio-dram";
-			reg = <0x0 DT_SIZE_M(128)>;
+			reg = <0x100000 DT_SIZE_M(128)>;
 		};
 	};
 };
