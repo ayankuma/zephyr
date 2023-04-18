@@ -17,8 +17,8 @@
 		 */
 		zephyr,sram = &dram0;
 		zephyr,flash = &flash0;
-		zephyr,console = &uart0;
-		zephyr,shell-uart = &uart0;
+		zephyr,console = &uart1;
+		zephyr,shell-uart = &uart1;
 	};
 
 	psci {
@@ -32,9 +32,9 @@
 			reg = <0x88000000 DT_SIZE_M(64)>;
 		};
 
-		dram0: memory@0 {
+		dram0: memory@d00000 {
 			compatible = "mmio-dram";
-			reg = <0x0 DT_SIZE_M(128)>;
+			reg = <0xd00000 DT_SIZE_M(128)>;
 		};
 	};
 };
