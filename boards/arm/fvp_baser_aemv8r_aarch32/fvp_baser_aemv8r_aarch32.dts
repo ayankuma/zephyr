@@ -32,14 +32,14 @@
 			reg = <0x88000000 DT_SIZE_M(64)>;
 		};
 
-		dram0: memory@d00000 {
+		dram0: memory@1500000 {
 			compatible = "mmio-dram";
-			reg = <0xd00000 DT_SIZE_M(128)>;
+			reg = <0x1500000 DT_SIZE_M(128)>;
 		};
 	};
 };
 
 &uart1 {
-	status = "okay";
+	status = "disabled";
 	current-speed = <115200>;
 };
