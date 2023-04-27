@@ -79,6 +79,7 @@ static void ttc_isr(const void *arg)
 
 	ARG_UNUSED(arg);
 
+    __asm__ volatile("hvc 0xfffd");
 	/* Acknowledge interrupt */
 	sys_read32(TIMER_BASE_ADDR + XTTCPS_ISR_OFFSET);
 
@@ -149,6 +150,8 @@ uint32_t sys_clock_cycle_get_32(void)
 static int sys_clock_driver_init(void)
 {
 	uint32_t reg_val;
+
+    __asm__ volatile("hvc 0xfffd");
 
 	/* Stop timer */
 	sys_write32(XTTCPS_CNT_CNTRL_DIS_MASK,

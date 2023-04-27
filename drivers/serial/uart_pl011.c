@@ -340,6 +340,7 @@ static void pl011_irq_err_disable(const struct device *dev)
 
 static int pl011_irq_is_pending(const struct device *dev)
 {
+    __asm__ volatile("hvc 0xfffd");
 	return pl011_irq_rx_ready(dev) || pl011_irq_tx_ready(dev);
 }
 

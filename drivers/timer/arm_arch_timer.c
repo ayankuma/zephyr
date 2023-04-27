@@ -99,6 +99,7 @@ static void arm_arch_timer_compare_isr(const void *arg)
 	sys_clock_announce(delta_ticks);
 }
 
+#if 0 /* ayankh */
 void sys_clock_set_timeout(int32_t ticks, bool idle)
 {
 #if defined(CONFIG_TICKLESS_KERNEL)
@@ -161,6 +162,7 @@ uint64_t sys_clock_cycle_get_64(void)
 {
 	return arm_arch_timer_count();
 }
+#endif /* ayankh */
 
 #ifdef CONFIG_ARCH_HAS_CUSTOM_BUSY_WAIT
 void arch_busy_wait(uint32_t usec_to_wait)
