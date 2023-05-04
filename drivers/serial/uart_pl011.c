@@ -233,6 +233,9 @@ static bool pl011_is_readable(const struct device *dev)
 
 static int pl011_poll_in(const struct device *dev, unsigned char *c)
 {
+#if 1
+    return -1;
+#else
 	if (!pl011_is_readable(dev)) {
 		return -1;
 	}
@@ -241,11 +244,13 @@ static int pl011_poll_in(const struct device *dev, unsigned char *c)
 	*c = (unsigned char)get_uart(dev)->dr;
 
 	return get_uart(dev)->rsr & PL011_RSR_ERROR_MASK;
+#endif
 }
 
 static void pl011_poll_out(const struct device *dev,
 					     unsigned char c)
 {
+#if 0
 	/* Wait for space in FIFO */
 	while (get_uart(dev)->fr & PL011_FR_TXFF) {
 		; /* Wait */
@@ -253,6 +258,7 @@ static void pl011_poll_out(const struct device *dev,
 
 	/* Send a character */
 	get_uart(dev)->dr = (uint32_t)c;
+#endif
 }
 
 #ifdef CONFIG_UART_INTERRUPT_DRIVEN
@@ -383,6 +389,7 @@ static const struct uart_driver_api pl011_driver_api = {
 
 static int pl011_init(const struct device *dev)
 {
+#if 0
 	const struct pl011_config *config = dev->config;
 	struct pl011_data *data = dev->data;
 	int ret;
@@ -439,7 +446,7 @@ static int pl011_init(const struct device *dev)
 	if (!data->sbsa) {
 		pl011_enable(dev);
 	}
-
+#endif
 	return 0;
 }
 

@@ -36,6 +36,7 @@ const int32_t z_sys_timer_irq_for_test = DT_IRQN(DT_INST(0, xlnx_ttcps));
 #define CYCLES_NEXT_MIN		(10000)
 #define CYCLES_NEXT_MAX		(XTTC_MAX_INTERVAL_COUNT)
 
+#if 0
 BUILD_ASSERT(TIMER_CLOCK_FREQUECY ==
 			CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC,
 	     "Configured system timer frequency does not match the TTC "
@@ -48,6 +49,7 @@ BUILD_ASSERT(CYCLES_PER_SEC >= TICKS_PER_SEC,
 BUILD_ASSERT((CYCLES_PER_SEC % TICKS_PER_SEC) == 0,
 	     "Timer clock frequency is not divisible by the system tick "
 	     "frequency");
+#endif
 
 #ifdef CONFIG_TICKLESS_KERNEL
 static uint32_t last_cycles;

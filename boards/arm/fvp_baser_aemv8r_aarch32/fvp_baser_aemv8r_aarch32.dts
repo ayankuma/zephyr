@@ -32,23 +32,23 @@
 			reg = <0x88000000 DT_SIZE_M(64)>;
 		};
 
-		dram0: memory@d00000 {
+		dram0: memory@1500000 {
 			compatible = "mmio-dram";
-			reg = <0xd00000 DT_SIZE_M(128)>;
+			reg = <0x1500000 DT_SIZE_M(128)>;
 		};
 
-        ttc0: timer@f1dc0000 {
+        ttc1: timer@f1dd0000 {
             compatible = "xlnx,ttcps";
             clock-frequency = <5000000>;
             status = "okay";
-            interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL
+            interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL
                     IRQ_DEFAULT_PRIORITY>,
-                     <GIC_SPI 44 IRQ_TYPE_LEVEL
+                     <GIC_SPI 47 IRQ_TYPE_LEVEL
                     IRQ_DEFAULT_PRIORITY>,
-                     <GIC_SPI 45 IRQ_TYPE_LEVEL
+                     <GIC_SPI 48 IRQ_TYPE_LEVEL
                     IRQ_DEFAULT_PRIORITY>;
             interrupt-names = "irq_0", "irq_1", "irq_2";
-            reg = <0xf1dc0000 0x1000>;
+            reg = <0xf1dd0000 0x1000>;
         };
 	};
 };
